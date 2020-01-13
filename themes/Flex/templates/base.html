@@ -41,10 +41,10 @@
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS">
   {% endif %}
 
-  {% if FAVICON %}
-    <link rel="shortcut icon" href="{{ FAVICON }}" type="image/x-icon">
-    <link rel="icon" href="{{ FAVICON }}" type="image/x-icon">
-  {% endif %}
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
 
   {% if BROWSER_COLOR %}
     <!-- Chrome, Firefox OS and Opera -->
@@ -148,33 +148,15 @@
     {% endblock %}
 
     <footer>
-      {% if CC_LICENSE %}
-        {% include "partial/cc_license.html" %}
-      {% else %}
-        {% include "partial/copyright.html" %}
-      {% endif %}
+      {% include "partial/copyright.html" %}
     </footer>
+    <script type="text/javascript">
+      var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+      document.write(unescape("%3Cspan id='cnzz_stat_icon_1276445513'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/stat.php%3Fid%3D1276445513%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));
+    </script>
   </main>
 
-  {% if GUAGES %}
-    {% include "partial/guages.html" %}
-  {% endif %}
-
-  {% if ADD_THIS_ID %}
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADD_THIS_ID }}" async="async"></script>
-  {% endif %}
-
-  {% if PIWIK_URL and PIWIK_SITE_ID %}
-    {% include "partial/piwik.html" %}
-  {% endif %}
-
   {% include "partial/jsonld.html" %}
-
-  {% block additional_js %}{% endblock %}
-
-  {% if GITHUB_CORNER_URL %}
-  {% include 'partial/github.html' %}
-  {% endif %}
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
   </script>
